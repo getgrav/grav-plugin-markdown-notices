@@ -2,6 +2,8 @@
 
 The **markdown-notices plugin** for [Grav](http://github.com/getgrav/grav) allows generation of notice blocks of text via markdown:
 
+![](assets/screenshot.png)
+
 # Installation
 
 This plugin is easy to install with GPM.
