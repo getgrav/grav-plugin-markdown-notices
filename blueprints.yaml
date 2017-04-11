@@ -6,6 +6,7 @@ author:
   name: Team Grav
   email: devs@getgrav.org
   url: http://getgrav.org
+homepage: https://github.com/getgrav/grav-plugin-markdown-notices
 license: MIT
 
 form:
