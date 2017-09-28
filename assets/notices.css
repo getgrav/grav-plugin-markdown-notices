@@ -6,7 +6,7 @@
     border-radius: 3px;
 }
 
-.notices p,ul,ol {
+.notices p, .notices ul, .notices ol {
     margin-bottom: 0;
 }
 
