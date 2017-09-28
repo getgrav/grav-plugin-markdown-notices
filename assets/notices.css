@@ -1,35 +1,32 @@
 .notices {
-    padding: 15px;
-    margin: 1rem 0;
-    border-width: 1px 1px 1px 10px;
-    border-style: solid;
-    border-radius: 3px;
+    padding: 1px 1px 1px 30px;
+    margin: 15px 0;
 }
 
-.notices p, .notices ul, .notices ol {
-    margin-bottom: 0;
+.notices p {
+
 }
 
 .notices.yellow {
-    border-color: #f0ad4e;
+    border-left: 10px solid #f0ad4e;
     background: #fcf8f2;
     color: #df8a13;
 }
 
 .notices.red {
-    border-color: #d9534f;
+    border-left: 10px solid #d9534f;
     background: #fdf7f7;
     color: #b52b27;
 }
 
 .notices.blue {
-    border-color: #5bc0de;
+    border-left: 10px solid #5bc0de;
     background: #f4f8fa;
     color: #28a1c5;
 }
 
 .notices.green {
-	border-color: #5cb85c;
+    border-left: 10px solid #5cb85c;
     background: #f1f9f1;
     color: #3d8b3d;
 }
