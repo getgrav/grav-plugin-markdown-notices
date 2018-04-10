@@ -23,7 +23,7 @@ class MarkdownNoticesPlugin extends Plugin
     {
         $markdown = $event['markdown'];
 
-        $markdown->addBlockType('!', 'Notices', true, false);
+        $markdown->addBlockType('!', 'Notices', true, false, null, true);
 
         $markdown->blockNotices = function($Line) {
 
