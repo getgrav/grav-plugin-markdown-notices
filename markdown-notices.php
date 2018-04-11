@@ -23,7 +23,7 @@ class MarkdownNoticesPlugin extends Plugin
     {
         $markdown = $event['markdown'];
 
-        $markdown->addBlockType('!', 'Notices', true, false);
+        $markdown->addBlockType('!', 'Notices', true, false, null, true);
 
         $markdown->blockNotices = function($Line) {
 
@@ -46,11 +46,14 @@ class MarkdownNoticesPlugin extends Plugin
                 $Block = array(
                     'element' => array(
                         'name' => 'div',
-                        'handler' => 'lines',
+                        'handler' => array(
+                            'function' => 'linesElements',
+                            'argument' => (array) $text,
+                            'destination' => 'elements',
+                        ),
                         'attributes' => array(
                             'class' => 'notices '. $this->level_classes[$level],
                         ),
-                        'text' => (array) $text,
                     ),
                 );
 
@@ -66,7 +69,7 @@ class MarkdownNoticesPlugin extends Plugin
 
             if ($Line['text'][0] === '!' and preg_match('/^(!{1,'.count($this->level_classes).'})(.*)/', $Line['text'], $matches))
             {
-                $Block['element']['text'] []= ltrim($matches[2]);
+                $Block['element']['handler']['argument'] []= ltrim($matches[2]);
 
                 return $Block;
             }
