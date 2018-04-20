@@ -7,6 +7,7 @@ use RocketTheme\Toolbox\Event\Event;
 class MarkdownNoticesPlugin extends Plugin
 {
     protected $level_classes;
+    protected $hasNotice = false;
 
     /**
      * @return array
@@ -14,8 +15,8 @@ class MarkdownNoticesPlugin extends Plugin
     public static function getSubscribedEvents()
     {
         return [
-            'onMarkdownInitialized' => ['onMarkdownInitialized', 0],
-            'onTwigSiteVariables'   => ['onTwigSiteVariables', 0]
+            'onMarkdownInitialized'  => ['onMarkdownInitialized', 0],
+            'onPageContentProcessed' => ['onPageContentProcessed', 0],
         ];
     }
 
@@ -54,6 +55,8 @@ class MarkdownNoticesPlugin extends Plugin
                     ),
                 );
 
+                $this->hasNotice = true;
+
                 return $Block;
             }
         };
@@ -73,12 +76,11 @@ class MarkdownNoticesPlugin extends Plugin
         };
     }
 
-    public function onTwigSiteVariables()
+    public function onPageContentProcessed()
     {
-        if ($this->config->get('plugins.markdown-notices.built_in_css')) {
+        if ($this->hasNotice && $this->config->get('plugins.markdown-notices.built_in_css')) {
             $this->grav['assets']
                 ->add('plugin://markdown-notices/assets/notices.css');
         }
     }
-
 }
