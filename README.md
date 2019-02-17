@@ -19,7 +19,7 @@ Simply copy the `user/plugins/markdown-notices/markdown-notices.yaml` into `user
 ```
 enabled: true
 built_in_css: true
-base_classes: [notices]
+base_classes: 'notices'
 level_classes: [yellow, red, blue, green]
 ```
 
