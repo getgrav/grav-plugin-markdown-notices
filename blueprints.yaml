@@ -42,7 +42,7 @@ form:
       help: PLUGIN_MARKDOWN_NOTICES.HELP
       classes: fancy
       validate:
-        type: commalist
+        type: string
 
     level_classes:
       type: selectize
