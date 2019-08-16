@@ -1,3 +1,9 @@
+# v1.0.3
+## 08/16/2018
+
+1. [](#improved)
+    * Fixed issue where PR#10 clobbered PR#9
+
 # v1.0.2
 ## 08/11/2018
 
