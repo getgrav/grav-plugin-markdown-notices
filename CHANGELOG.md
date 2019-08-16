@@ -1,5 +1,11 @@
+# v1.0.3
+## 08/16/2019
+
+1. [](#improved)
+    * Fixed issue where PR#10 clobbered PR#9
+
 # v1.0.2
-## 08/11/2018
+## 08/11/2019
 
 1. [](#new)
     * Ability to specify your own base classes [#9](https://github.com/getgrav/grav-plugin-markdown-notices/pull/9)
