@@ -39,7 +39,7 @@ form:
       label: PLUGIN_MARKDOWN_NOTICES.BASE_CLASSES
       size: large
       placeholder: PLUGIN_MARKDOWN_NOTICES.BASE_CLASSES_PLACEHOLDER
-      help: PLUGIN_MARKDOWN_NOTICES.HELP
+      help: PLUGIN_MARKDOWN_NOTICES.BASE_CLASSES_HELP
       classes: fancy
       validate:
         type: string
