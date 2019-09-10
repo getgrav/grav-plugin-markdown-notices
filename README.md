@@ -60,3 +60,17 @@ The `notices` class determined by the `base_classes` and `yellow` class is deter
 ```
 
 Two levels of `!!` will use the second level class etc.  You can also use complex markdown inside the notices.
+
+# Warnings for european users
+
+Since an update to make it able to process the syntax inside a *markdown-table*, the plugin detects any `!` preceeded by a `<space>` as a notice call. Consequently, the european way of adding `<space>` before semicolons or exclamation points or interrogation points lead to trigger the plugin, and to display a notice in place of a link (for example).
+
+So, the next code : 
+```
+Hello world ! [click me for more information](/page/example).
+```
+will render "Hello world" followed by a yellow notice displaying the link in raw text (as if markdown wasn't intepreted).
+
+There is no solution nor workaround for now, and the only way is to disable the plugin or to inform the user to stick to american typography standards.
+
+
