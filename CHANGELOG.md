@@ -1,3 +1,9 @@
+# v1.0.4
+## 09/10/2019
+
+1. [](#improved)
+    * Reverted PR#10 which was breaking multiline notices and also unintentionally marking up notices with `<space>!<space>` in paragraphs 
+
 # v1.0.3
 ## 08/16/2019
 
