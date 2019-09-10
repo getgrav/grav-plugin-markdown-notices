@@ -1,5 +1,5 @@
 name: 'Markdown Notices'
-version: 1.0.3
+version: 1.0.4
 description: 'Adds the ability to render notices blocks in Markdown'
 icon: asterisk
 author:
@@ -39,7 +39,7 @@ form:
       label: PLUGIN_MARKDOWN_NOTICES.BASE_CLASSES
       size: large
       placeholder: PLUGIN_MARKDOWN_NOTICES.BASE_CLASSES_PLACEHOLDER
-      help: PLUGIN_MARKDOWN_NOTICES.HELP
+      help: PLUGIN_MARKDOWN_NOTICES.BASE_CLASSES_HELP
       classes: fancy
       validate:
         type: string
