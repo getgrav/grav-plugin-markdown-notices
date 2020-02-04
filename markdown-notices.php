@@ -1,6 +1,7 @@
 <?php
 namespace Grav\Plugin;
 
+use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
 
@@ -15,9 +16,22 @@ class MarkdownNoticesPlugin extends Plugin
     public static function getSubscribedEvents()
     {
         return [
+            'onPluginsInitialized' => [
+                ['autoload', 100001],
+            ],
             'onMarkdownInitialized' => ['onMarkdownInitialized', 0],
             'onTwigSiteVariables'   => ['onTwigSiteVariables', 0]
         ];
+    }
+
+    /**
+     * [onPluginsInitialized:100000] Composer autoload.
+     *
+     * @return ClassLoader
+     */
+    public function autoload()
+    {
+        return require __DIR__ . '/vendor/autoload.php';
     }
 
     public function onMarkdownInitialized(Event $event)

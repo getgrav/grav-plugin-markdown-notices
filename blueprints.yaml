@@ -8,6 +8,8 @@ author:
   url: http://getgrav.org
 homepage: https://github.com/getgrav/grav-plugin-markdown-notices
 license: MIT
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
 
 form:
   validation: strict
