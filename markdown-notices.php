@@ -45,15 +45,9 @@ class MarkdownNoticesPlugin extends Plugin
             $this->level_classes = $this->config->get('plugins.markdown-notices.level_classes');
             $this->base_classes  = $this->config->get('plugins.markdown-notices.base_classes');
 
-            if (preg_match('/^(!{1,'.count($this->level_classes).'})[ ]+(.*)/', $Line['text'], $matches))
+            if (preg_match('/^(!{1,'.count($this->level_classes).'}) (.*)/', $Line['text'], $matches))
             {
                 $level = strlen($matches[1]) - 1;
-
-                // if we have more levels than we support
-                if ($level > count($this->level_classes)-1)
-                {
-                    return;
-                }
 
                 $text = $matches[2];
                 $base_classes = (empty($this->base_classes)) ? '' : str_replace(',', ' ', $this->base_classes) . ' ';
@@ -79,9 +73,9 @@ class MarkdownNoticesPlugin extends Plugin
                 return;
             }
 
-            if ($Line['text'][0] === '!' and preg_match('/^(!{1,'.count($this->level_classes).'})(.*)/', $Line['text'], $matches))
+            if (preg_match('/^(!{1,'.count($this->level_classes).'}) ?(.*)/', $Line['text'], $matches))
             {
-                $Block['element']['text'] []= ltrim($matches[2]);
+                $Block['element']['text'] []= $matches[2];
 
                 return $Block;
             }
