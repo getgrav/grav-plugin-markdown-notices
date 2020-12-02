@@ -1,6 +1,7 @@
 <?php
 namespace Grav\Plugin;
 
+use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
 
@@ -15,9 +16,22 @@ class MarkdownNoticesPlugin extends Plugin
     public static function getSubscribedEvents()
     {
         return [
+            'onPluginsInitialized' => [
+                ['autoload', 100001],
+            ],
             'onMarkdownInitialized' => ['onMarkdownInitialized', 0],
             'onTwigSiteVariables'   => ['onTwigSiteVariables', 0]
         ];
+    }
+
+    /**
+     * [onPluginsInitialized:100000] Composer autoload.
+     *
+     * @return ClassLoader
+     */
+    public function autoload()
+    {
+        return require __DIR__ . '/vendor/autoload.php';
     }
 
     public function onMarkdownInitialized(Event $event)
@@ -31,15 +45,9 @@ class MarkdownNoticesPlugin extends Plugin
             $this->level_classes = $this->config->get('plugins.markdown-notices.level_classes');
             $this->base_classes  = $this->config->get('plugins.markdown-notices.base_classes');
 
-            if (preg_match('/^(!{1,'.count($this->level_classes).'})[ ]+(.*)/', $Line['text'], $matches))
+            if (preg_match('/^(!{1,'.count($this->level_classes).'}) (.*)/', $Line['text'], $matches))
             {
                 $level = strlen($matches[1]) - 1;
-
-                // if we have more levels than we support
-                if ($level > count($this->level_classes)-1)
-                {
-                    return;
-                }
 
                 $text = $matches[2];
                 $base_classes = (empty($this->base_classes)) ? '' : str_replace(',', ' ', $this->base_classes) . ' ';
@@ -65,9 +73,9 @@ class MarkdownNoticesPlugin extends Plugin
                 return;
             }
 
-            if ($Line['text'][0] === '!' and preg_match('/^(!{1,'.count($this->level_classes).'})(.*)/', $Line['text'], $matches))
+            if (preg_match('/^(!{1,'.count($this->level_classes).'}) ?(.*)/', $Line['text'], $matches))
             {
-                $Block['element']['text'] []= ltrim($matches[2]);
+                $Block['element']['text'] []= $matches[2];
 
                 return $Block;
             }

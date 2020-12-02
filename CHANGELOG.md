@@ -1,3 +1,11 @@
+# v1.1.0
+## 12/02/2020
+
+1. [](#new)
+    * Support for indent-sensitive notices [#17](https://github.com/getgrav/grav-plugin-markdown-notices/pull/17)
+    * Pass phpstan level 1 tests
+    * Require Grav v1.6
+
 # v1.0.4
 ## 09/10/2019
 
