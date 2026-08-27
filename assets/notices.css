@@ -8,25 +8,84 @@
 }
 
 .notices.yellow {
-    border-left: 10px solid #f0ad4e;
-    background: #fcf8f2;
-    color: #df8a13;
+    --notice-border: #f0ad4e;
+    --notice-bg: #fcf8f2;
+    --notice-color: #df8a13;
 }
 
 .notices.red {
-    border-left: 10px solid #d9534f;
-    background: #fdf7f7;
-    color: #b52b27;
+    --notice-border: #d9534f;
+    --notice-bg: #fdf7f7;
+    --notice-color: #b52b27;
 }
 
 .notices.blue {
-    border-left: 10px solid #5bc0de;
-    background: #f4f8fa;
-    color: #28a1c5;
+    --notice-border: #5bc0de;
+    --notice-bg: #f4f8fa;
+    --notice-color: #28a1c5;
 }
 
 .notices.green {
-    border-left: 10px solid #5cb85c;
-    background: #f1f9f1;
-    color: #3d8b3d;
+    --notice-border: #5cb85c;
+    --notice-bg: #f1f9f1;
+    --notice-color: #3d8b3d;
+}
+
+.notices.yellow,
+.notices.red,
+.notices.blue,
+.notices.green {
+    border-left: 10px solid var(--notice-border);
+    background: var(--notice-bg);
+    color: var(--notice-color);
+}
+
+:is(:root[data-theme="dark"], html.dark, html[data-theme="dark"], body.dark, body.dark-mode, .dark-mode) .notices.yellow {
+    --notice-border: #f0ad4e;
+    --notice-bg: #2b2318;
+    --notice-color: #f0c36d;
+}
+
+:is(:root[data-theme="dark"], html.dark, html[data-theme="dark"], body.dark, body.dark-mode, .dark-mode) .notices.red {
+    --notice-border: #e5534b;
+    --notice-bg: #2b1919;
+    --notice-color: #f0a8a5;
+}
+
+:is(:root[data-theme="dark"], html.dark, html[data-theme="dark"], body.dark, body.dark-mode, .dark-mode) .notices.blue {
+    --notice-border: #5bc0de;
+    --notice-bg: #162228;
+    --notice-color: #7dd3ee;
+}
+
+:is(:root[data-theme="dark"], html.dark, html[data-theme="dark"], body.dark, body.dark-mode, .dark-mode) .notices.green {
+    --notice-border: #5cb85c;
+    --notice-bg: #172217;
+    --notice-color: #8ed48e;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .notices.yellow {
+        --notice-border: #f0ad4e;
+        --notice-bg: #2b2318;
+        --notice-color: #f0c36d;
+    }
+
+    :root:not([data-theme="light"]) .notices.red {
+        --notice-border: #e5534b;
+        --notice-bg: #2b1919;
+        --notice-color: #f0a8a5;
+    }
+
+    :root:not([data-theme="light"]) .notices.blue {
+        --notice-border: #5bc0de;
+        --notice-bg: #162228;
+        --notice-color: #7dd3ee;
+    }
+
+    :root:not([data-theme="light"]) .notices.green {
+        --notice-border: #5cb85c;
+        --notice-bg: #172217;
+        --notice-color: #8ed48e;
+    }
 }
