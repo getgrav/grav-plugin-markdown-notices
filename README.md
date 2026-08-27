@@ -70,30 +70,9 @@ Two levels of `!!` will use the second level class etc.  You can also use comple
 
 # Styling and dark theme
 
-When `built_in_css` is enabled, the plugin loads `assets/notices.css`. Light-mode colors are unchanged from previous versions.
+Dark-mode colors are applied automatically when the active theme marks the page as dark. In order to cover as many themes as possible it applies under any of the following rules:
 
-Dark-mode colors are applied automatically when the active theme marks the page as dark. The stylesheet follows official Grav conventions used by [Quark2](https://github.com/getgrav/grav-theme-quark2):
-
-- `:root[data-theme="dark"]`
-- `html.dark`
-- `[data-theme="dark"]` on `html` or `body`
-- `.dark` / `.dark-mode` (community themes)
-
-If the page has not explicitly set `data-theme="light"`, the stylesheet also respects `prefers-color-scheme: dark`. Always-light sites therefore keep the original notice colors.
-
-Each notice level uses CSS variables so a theme can retint without replacing the whole file:
-
-```css
-.notices.yellow {
-    --notice-border: #f0ad4e;
-    --notice-bg: #fcf8f2;
-    --notice-color: #df8a13;
-}
-
-:root[data-theme="dark"] .notices.yellow {
-    --notice-bg: #2b2318;
-    --notice-color: #f0c36d;
-}
-```
-
-To use your own styles instead, set `built_in_css: false` and target `.notices` plus your `level_classes` from the theme (for example `css/custom.css`). If you change `level_classes` away from `yellow`, `red`, `blue`, and `green`, add matching rules or variables for those class names.
+- :root[data-theme="dark"]
+- html.dark
+- body.dark
+- body.dark-mode
