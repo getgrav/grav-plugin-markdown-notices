@@ -23,6 +23,13 @@ base_classes: 'notices'
 level_classes: [yellow, red, blue, green]
 ```
 
+| Option | Default | Description |
+|---|---|---|
+| `enabled` | `true` | Enables the plugin. |
+| `built_in_css` | `true` | Loads the plugin stylesheet, including light and dark notice colors. Set to `false` if you want to style notices entirely from your theme. |
+| `base_classes` | `notices` | Classes added to every notice block, before the level class. |
+| `level_classes` | `[yellow, red, blue, green]` | Class used for each notice depth (`!`, `!!`, `!!!`, `!!!!`). |
+
 # Examples
 
 Using one level of `!`
@@ -60,3 +67,12 @@ The `notices` class determined by the `base_classes` and `yellow` class is deter
 ```
 
 Two levels of `!!` will use the second level class etc.  You can also use complex markdown inside the notices.
+
+# Styling and dark theme
+
+Dark-mode colors are applied automatically when the active theme marks the page as dark. In order to cover as many themes as possible it applies under any of the following rules:
+
+- :root[data-theme="dark"]
+- html.dark
+- body.dark
+- body.dark-mode
