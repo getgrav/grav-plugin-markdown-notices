@@ -1,3 +1,9 @@
+# v1.3.0
+## 08/27/2026
+
+1. [](#new)
+   * Added support for dark themes
+
 # v1.2.0
 ## 05/06/2026
 
