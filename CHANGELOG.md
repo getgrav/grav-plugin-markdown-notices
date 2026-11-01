@@ -1,3 +1,9 @@
+# v1.2.1
+## 11/01/2026
+
+1. [](#bugfix)
+    * Notices now have even padding on every side in any theme, including on the right where text used to run to the edge [#27](https://github.com/getgrav/grav-plugin-markdown-notices/pull/27)
+
 # v1.2.0
 ## 05/06/2026
 

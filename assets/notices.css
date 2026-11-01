@@ -3,8 +3,12 @@
     margin: 15px 0;
 }
 
-.notices p {
-    margin: 0;
+.notices > :first-child {
+    margin-top: 0;
+}
+
+.notices > :last-child {
+    margin-bottom: 0;
 }
 
 .notices.yellow {
