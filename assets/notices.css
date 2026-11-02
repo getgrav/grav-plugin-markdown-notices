@@ -1,10 +1,14 @@
 .notices {
-    padding: 1px 1px 1px 30px;
+    padding: 30px;
     margin: 15px 0;
 }
 
-.notices p {
+.notices > :first-child {
+    margin-top: 0;
+}
 
+.notices > :last-child {
+    margin-bottom: 0;
 }
 
 .notices.yellow {
